@@ -35,7 +35,7 @@ class AuthController extends Controller
 
         if(Auth::attempt(['username' => $request->input('username'), 'password' => $request->input('password')]))
         {
-            $request->request->add(['required_perm' => 'login']);
+            $request->request->add(['required_perm' => 'Member']);
             $this->log->create($request, "AUTH", "Successfully logged in to the Housekeeping");
             return redirect()->intended('dashboard');
         }

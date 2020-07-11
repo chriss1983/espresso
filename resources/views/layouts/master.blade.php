@@ -73,7 +73,7 @@
                         <li class="navigation__active">
                             <a href="/dashboard"><i class="zmdi zmdi-chart"></i> Dashboard</a>
                         </li>
-                        @if(Permissions::hasPermission(Auth::user(), 'system_access'))
+                        @if(Permissions::hasPermission(Auth::user(), 'X'))
                         <li class="navigation__sub">
                             <a href="" data-mae-action="submenu-toggle"><i class="zmdi zmdi-storage"></i> System</a>
 

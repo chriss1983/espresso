@@ -17,7 +17,7 @@ class PagesController extends Controller
      */
     public function dashboard(Request $request)
     {
-        $request->request->add(['required_perm' => 'dashboard_access']);
+        $request->request->add(['required_perm' => 'Administrator']);
         return view('dashboard')->with(['page_title' => 'Dashboard']);
     }
 
@@ -27,7 +27,7 @@ class PagesController extends Controller
      */
     public function system_logs(Request $request)
     {
-        $request->request->add(['required_perm' => 'system_logs_read']);
+        $request->request->add(['required_perm' => 'Administrator']);
         $logs = Log::orderBy('created_at', 'DESC')->get();
         return view('system.logs')->with(['page_title' => 'Monitoring Logs', 'logs' => $logs]);
     }
@@ -39,7 +39,7 @@ class PagesController extends Controller
      */
     public function system_users(Request $request)
     {
-        $request->request->add(['required_perm' => 'system_users_read']);
+        $request->request->add(['required_perm' => 'Administrator']);
         $users = User::all();
         return view('system.users')->with(['page_title' => 'System Accounts', 'users' => $users]);
     }
@@ -51,7 +51,7 @@ class PagesController extends Controller
      */
     public function system_roles(Request $request)
     {
-        $request->request->add(['required_perm' => 'system_roles_read']);
+        $request->request->add(['required_perm' => 'Administrator']);
         $roles = Role::all();
         return view('system.roles')->with(['page_title' => 'Account Roles', 'roles' => $roles]);
     }

@@ -8,16 +8,11 @@
  */
 
 return [
-    'login' => 'Can login to Espreso',
-
-    'dashboard_access' => 'Can access the dashboard',
-    'system_access' => 'Can access system tab',
-
-    'system_logs_read' => 'Monitoring Logs (Read)',
-    'system_users_read' => 'System Users (Read)',
-    'system_users_write' => 'System Users (Write)',
-    'system_roles_read' => 'Account roles (Read)',
-    'system_roles_write' => 'Account roles (Write)',
-    'system_permissions_read' => 'System permissions (Read)',
-    'system_permissions_write' => 'System permissions (Write)'
+    'Member' => 'Can login to Espreso',
+    'VIP' => 'Can access the dashboard',
+    'X' => 'Can access system tab',
+    'Support' => 'Monitoring Logs (Read)',
+    'Moderator' => 'System Users (Read)',
+    'Super Mod' => 'System Users (Write)',
+    'Administrator' => 'Account roles (Read)'
 ];

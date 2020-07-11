@@ -15,13 +15,13 @@ class PermissionController extends Controller
      * @param User $user
      * @param $permission
      * @return bool
-     */
+     */    
     public function hasPermission(User $user, $permission)
     {
-        $data = Permission::where('perm_string', $permission)->firstOrFail()->assigned_roles;
-        $assigned = explode(';', $data);
+        $data = Permission::where('rank_name', $permission)->firstOrFail()->level;
+        //$assigned = explode(';', $data);
 
-        if(in_array($user->rank, $assigned))
+        if(in_array($user->rank, $data))
         {
             return true;
         }
@@ -37,11 +37,11 @@ class PermissionController extends Controller
      * @param $rid
      */
     public function update($perm_string, $rid)
-    {
-        $perm = Permission::where('perm_string', $perm_string)->firstOrFail()->assigned_roles;
+    {        
+        $level = Permission::where('rank_name', $perm_string)->firstOrFail()->level;
 
-        Permission::where('perm_string', $perm_string)->update([
-            'assigned_roles' => $perm . ';' . $rid,
+        $user = DB::table('users')->where('id', $rid)-update([
+            'level' => $level,
         ]);
     }
 }

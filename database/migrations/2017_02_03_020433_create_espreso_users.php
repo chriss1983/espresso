@@ -13,7 +13,7 @@ class CreateEspresoUsers extends Migration
      */
     public function up()
     {
-        Schema::create('espreso_users', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('username', 25)->nullable();
             $table->text('password');
@@ -24,7 +24,7 @@ class CreateEspresoUsers extends Migration
             $table->timestamps();
         });
 
-        DB::table('espreso_users')->insert([
+        DB::table('users')->insert([
             'username'  => 'John Doe',
             'email'     => 'admin@example.com',
             'password'  => Hash::make('admin'),
@@ -39,6 +39,6 @@ class CreateEspresoUsers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('expreso_users');
+       // Schema::dropIfExists('users');
     }
 }
